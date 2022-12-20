@@ -2,6 +2,8 @@ import '../../api/platform_indentify.dart';
 import '../infos/device_info_page.dart';
 import '../infos/application_info_page.dart';
 import '../infos/network_info_page.dart';
+import '../infos/weather_info_page.dart';
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,15 +20,15 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('${PlatformIndentify.device}\'s Info'),
+          title: Text('${PlatformIndentify.device}\'s Информация'),
         ),
         drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
               const UserAccountsDrawerHeader(
-                accountName: Text('Flutter Approach'),
-                accountEmail: Text('Md. Sabik Alam Rahat'),
+                accountName: Text('Flutter тест'),
+                accountEmail: Text('тест'),
                 currentAccountPicture: CircleAvatar(
                   backgroundImage: AssetImage(
                     "assets/app-icon-1024x1024.png",
@@ -37,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                 selectedColor: Colors.blue,
                 selected: index == 1,
                 leading: const Icon(Icons.device_unknown_rounded),
-                title: const Text('Device Info'),
+                title: const Text('Информация об устройстве'),
                 onTap: () {
                   Navigator.pop(context);
                   if (index != 1) {
@@ -49,7 +51,7 @@ class _HomePageState extends State<HomePage> {
                 selectedColor: Colors.blue,
                 selected: index == 2,
                 leading: const Icon(Icons.contact_support_outlined),
-                title: const Text('Application Info'),
+                title: const Text('Информация об приложении'),
                 onTap: () {
                   Navigator.pop(context);
                   if (index != 2) {
@@ -61,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                 selectedColor: Colors.blue,
                 selected: index == 3,
                 leading: const Icon(Icons.network_check_rounded),
-                title: const Text('Network Info'),
+                title: const Text('Сеть'),
                 onTap: () {
                   Navigator.pop(context);
                   if (index != 3) {
@@ -69,6 +71,22 @@ class _HomePageState extends State<HomePage> {
                   }
                 },
               ),
+              
+              ListTile(
+                selectedColor: Colors.blue,
+                selected: index == 3,
+                leading: const Icon(Icons.network_check_rounded),
+                title: const Text('Прогноз погоды'),
+                onTap: () {
+                  Navigator.pop(context);
+                  if (index != 4) {
+                    setState(() => index = 4);
+                  }
+                },
+              ),
+
+
+
             ],
           ),
         ),
@@ -78,9 +96,22 @@ class _HomePageState extends State<HomePage> {
                 ? const ApplicationInfoPage()
                 : index == 3
                     ? const NetworkInfoPage()
-                    : const Center(
+                    : index == 4
+                        ? new WeatherPage()
+                        : const Center(
                         child: Text(
                             'Hello there..!\nIf you can see this text you\'re genius.😜',
                             textAlign: TextAlign.center)));
+                        
+                        
+                        
+                       
+                        
+
+
+                    // : const Center(
+                    //     child: Text(
+                    //         'Hello there..!\nIf you can see this text you\'re genius.😜',
+                    //         textAlign: TextAlign.center)));
   }
 }

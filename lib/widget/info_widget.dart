@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class InfoWidget extends StatelessWidget {
-  final Map<String, dynamic> map;
+  final Map<dynamic, dynamic> map;
 
   const InfoWidget({
     Key? key,

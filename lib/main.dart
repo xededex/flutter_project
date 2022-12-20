@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Device Infos',
+      title: 'Информация об устройстве',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: Wrapper(),
     );

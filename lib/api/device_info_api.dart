@@ -188,17 +188,17 @@ class DeviceInfoApi {
 
   static Map<String, dynamic> _readLinuxDeviceInfo(LinuxDeviceInfo info) {
     return <String, dynamic>{
-      'buildId': info.buildId,
+      'cборка': info.buildId,
       'id': info.id,
       'idLike': info.idLike,
-      'machineId': info.machineId,
-      'name': info.name,
-      'prettyName': info.prettyName,
-      'variant': info.variant,
+      'Id компьютера': info.machineId,
+      'название': info.name,
+      'название 2': info.prettyName,
+      'varint': info.variant,
       'variantId': info.variantId,
-      'version': info.version,
-      'versionCodename': info.versionCodename,
-      'versionId': info.versionId,
+      'версия': info.version,
+      'код версии': info.versionCodename,
+      'id версии': info.versionId,
     };
   }
 }
